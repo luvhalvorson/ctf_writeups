@@ -6,8 +6,8 @@ data = ("py" + b'\x00\x0a')
 sock = soc.socket(soc.AF_INET, soc.SOCK_STREAM)
 sock.connect(('redacted', 9999))
 
-length = sock.send(data)
-print 'Sent %d bytes' % length
+sock.sendall(data)
+print 'Sent %d bytes' % len(data)
 
 buf = sock.recv(4096)
 
